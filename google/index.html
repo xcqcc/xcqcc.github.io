@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chrome new tag</title>
+    <style>
+        html{
+            --log-margin-bottom: 29px;
+            --log-margin-top: 56px;
+            --log-height:200px;
+
+            --column-count: 2;
+            --tile-width: 154px;
+            --tile-margin: 16px;
+            --content-width: calc((var(--column-count) * (var(--tile-width) + var(--tile-margin)))
+                /* 我们增加了一个额外的像素，因为在不同的缩放上舍入误差会使宽度比它应该的短。*/
+            + 1px);
+
+            --GG100-rgb: 241, 243, 244;
+            --GG200-rgb: 232, 234, 237;
+            --GG700-rgb: 95, 99, 104;
+        }
+
+        button{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+        }
+
+
+        /* width >= (3 cols * (16px + 154px) - 16px + 200px) */
+        @media (min-width: 694px) {
+            html {
+                --column-count: 3;
+            }
+        }
+
+        /* width >= (4 cols * (16px + 154px) - 16px + 200px) */
+        @media (min-width: 864px) {
+            html {
+                --column-count: 4;
+            }
+        }
+
+        #contents{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        #logo{
+            position: relative;
+            margin-top: var(--log-margin-top);
+            height: calc(var(--log-height) + var(--log-margin-bottom));
+            min-height: fit-content;
+        }
+
+        #logo-default{
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNzIiIGhlaWdodD0iOTIiPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Ik0xMTUuNzUgNDcuMThjMCAxMi43Ny05Ljk5IDIyLjE4LTIyLjI1IDIyLjE4cy0yMi4yNS05LjQxLTIyLjI1LTIyLjE4QzcxLjI1IDM0LjMyIDgxLjI0IDI1IDkzLjUgMjVzMjIuMjUgOS4zMiAyMi4yNSAyMi4xOHptLTkuNzQgMGMwLTcuOTgtNS43OS0xMy40NC0xMi41MS0xMy40NFM4MC45OSAzOS4yIDgwLjk5IDQ3LjE4YzAgNy45IDUuNzkgMTMuNDQgMTIuNTEgMTMuNDRzMTIuNTEtNS41NSAxMi41MS0xMy40NHoiLz48cGF0aCBmaWxsPSIjRkJCQzA1IiBkPSJNMTYzLjc1IDQ3LjE4YzAgMTIuNzctOS45OSAyMi4xOC0yMi4yNSAyMi4xOHMtMjIuMjUtOS40MS0yMi4yNS0yMi4xOGMwLTEyLjg1IDkuOTktMjIuMTggMjIuMjUtMjIuMThzMjIuMjUgOS4zMiAyMi4yNSAyMi4xOHptLTkuNzQgMGMwLTcuOTgtNS43OS0xMy40NC0xMi41MS0xMy40NHMtMTIuNTEgNS40Ni0xMi41MSAxMy40NGMwIDcuOSA1Ljc5IDEzLjQ0IDEyLjUxIDEzLjQ0czEyLjUxLTUuNTUgMTIuNTEtMTMuNDR6Ii8+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTIwOS43NSAyNi4zNHYzOS44MmMwIDE2LjM4LTkuNjYgMjMuMDctMjEuMDggMjMuMDctMTAuNzUgMC0xNy4yMi03LjE5LTE5LjY2LTEzLjA3bDguNDgtMy41M2MxLjUxIDMuNjEgNS4yMSA3Ljg3IDExLjE3IDcuODcgNy4zMSAwIDExLjg0LTQuNTEgMTEuODQtMTN2LTMuMTloLS4zNGMtMi4xOCAyLjY5LTYuMzggNS4wNC0xMS42OCA1LjA0LTExLjA5IDAtMjEuMjUtOS42Ni0yMS4yNS0yMi4wOSAwLTEyLjUyIDEwLjE2LTIyLjI2IDIxLjI1LTIyLjI2IDUuMjkgMCA5LjQ5IDIuMzUgMTEuNjggNC45NmguMzR2LTMuNjFoOS4yNXptLTguNTYgMjAuOTJjMC03LjgxLTUuMjEtMTMuNTItMTEuODQtMTMuNTItNi43MiAwLTEyLjM1IDUuNzEtMTIuMzUgMTMuNTIgMCA3LjczIDUuNjMgMTMuMzYgMTIuMzUgMTMuMzYgNi42MyAwIDExLjg0LTUuNjMgMTEuODQtMTMuMzZ6Ii8+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTIyNSAzdjY1aC05LjVWM2g5LjV6Ii8+PHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTI2Mi4wMiA1NC40OGw3LjU2IDUuMDRjLTIuNDQgMy42MS04LjMyIDkuODMtMTguNDggOS44My0xMi42IDAtMjIuMDEtOS43NC0yMi4wMS0yMi4xOCAwLTEzLjE5IDkuNDktMjIuMTggMjAuOTItMjIuMTggMTEuNTEgMCAxNy4xNCA5LjE2IDE4Ljk4IDE0LjExbDEuMDEgMi41Mi0yOS42NSAxMi4yOGMyLjI3IDQuNDUgNS44IDYuNzIgMTAuNzUgNi43MiA0Ljk2IDAgOC40LTIuNDQgMTAuOTItNi4xNHptLTIzLjI3LTcuOThsMTkuODItOC4yM2MtMS4wOS0yLjc3LTQuMzctNC43LTguMjMtNC43LTQuOTUgMC0xMS44NCA0LjM3LTExLjU5IDEyLjkzeiIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0zNS4yOSA0MS40MVYzMkg2N2MuMzEgMS42NC40NyAzLjU4LjQ3IDUuNjggMCA3LjA2LTEuOTMgMTUuNzktOC4xNSAyMi4wMS02LjA1IDYuMy0xMy43OCA5LjY2LTI0LjAyIDkuNjZDMTYuMzIgNjkuMzUuMzYgNTMuODkuMzYgMzQuOTEuMzYgMTUuOTMgMTYuMzIuNDcgMzUuMy40N2MxMC41IDAgMTcuOTggNC4xMiAyMy42IDkuNDlsLTYuNjQgNi42NGMtNC4wMy0zLjc4LTkuNDktNi43Mi0xNi45Ny02LjcyLTEzLjg2IDAtMjQuNyAxMS4xNy0yNC43IDI1LjAzIDAgMTMuODYgMTAuODQgMjUuMDMgMjQuNyAyNS4wMyA4Ljk5IDAgMTQuMTEtMy42MSAxNy4zOS02Ljg5IDIuNjYtMi42NiA0LjQxLTYuNDYgNS4xLTExLjY1bC0yMi40OS4wMXoiLz48L3N2Zz4=");
+            background-repeat: no-repeat;
+            height: 92px;
+            width: 272px;
+            position: absolute;
+            left: calc(50% - 272px/2);
+            /*css calc()函数 动态计算长度*/
+            bottom: var(--log-margin-bottom);
+        }
+
+        #search{
+            margin: 0 auto 0 auto;
+            width: var(--content-width);
+        }
+
+        #searchbox {
+            background-color: rgb(var(--GG100-rgb));
+            border-radius: 22px;
+            cursor: text;
+            font-size: 18px;
+            height: 44px;
+            line-height: 36px;
+            margin: 0 auto;
+            max-width: 560px;
+            opacity: 1;
+            position: relative;
+            /* Transition should be similar to .mv-tile/.md-tile opacity transition. */
+            transition: background-color 300ms ease-in-out, opacity 200ms;
+        }
+
+        #searchbox-text{
+            bottom: 4px;
+            color: rgb(var(--GG700-rgb));
+            font-size: 14px;
+            left: 0;
+            margin-top: 1px;
+            overflow: hidden;
+            padding-inline-start: 20px;
+            position: absolute;
+            right: 44px;
+            text-align: initial;
+            text-overflow: ellipsis;
+            top: 4px;
+            vertical-align: middle;
+            visibility: inherit;
+            white-space: nowrap;
+        }
+        #searchbox > input{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            margin: 0;
+            box-sizing: border-box;
+            opacity: 0;
+            padding-inline-start: 20px;
+            width: 100%;
+        }
+
+        #searchbox-cursor{
+            background: #333;
+            bottom: 12px;
+            left: 20px;
+            position: absolute;
+            top: 12px;
+            visibility: hidden;
+            width: 1px;
+        }
+
+        #searchbox-microphone{
+            background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMiAxNWMxLjY2IDAgMi45OS0xLjM0IDIuOTktM0wxNSA1YzAtMS42Ni0xLjM0LTMtMy0zUzkgMy4zNCA5IDV2N2MwIDEuNjYgMS4zNCAzIDMgM3oiLz48cGF0aCBmaWxsPSIjMzRBODUzIiBkPSJNMTEgMTguOTJoMlYyMmgtMnoiLz48cGF0aCBmaWxsPSIjRjRCNDAwIiBkPSJNNyAxMkg1YzAgMS45My43OCAzLjY4IDIuMDUgNC45NWwxLjQxLTEuNDFDNy41NiAxNC42MyA3IDEzLjM4IDcgMTJ6Ii8+PHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTEyIDE3Yy0xLjM4IDAtMi42My0uNTYtMy41NC0xLjQ3bC0xLjQxIDEuNDFBNi45OSA2Ljk5IDAgMCAwIDEyLjAxIDE5YzMuODcgMCA2Ljk4LTMuMTQgNi45OC03aC0yYzAgMi43Ni0yLjIzIDUtNC45OSA1eiIvPjwvc3ZnPg==) no-repeat center;
+            background-size: 24px 24px;
+            bottom: 0;
+            cursor: pointer;
+            margin-inline-end: 12px;
+            padding: 22px 12px 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 28px;
+        }
+
+        #searchbox:hover{
+            background-color: rgb(var(--GG200-rgb));
+        }
+
+        body.searchbox-focused #searchbox-text{
+            visibility: hidden;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            61.55% {
+                opacity: 0;
+            }
+        }
+
+        body.searchbox-focused #searchbox-cursor {
+            animation: blink 1.3s step-end infinite;
+            visibility: inherit;
+        }
+
+        body.searchbox-focused {
+            visibility: inherit;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="contents">
+        <div id="logo">
+            <div id="logo-default" title="Google" class="show-logo"></div>
+        </div>
+        <div id="search">
+            <div id="searchbox">
+                <div id="searchbox-text">在Google上搜索，或者输入一个网址</div>
+                <input type="url" autocomplete="off" tabindex="-1" aria-hidden="true" id="searchbox-input" />
+                <div id="searchbox-cursor"></div>
+                <button id="searchbox-microphone" title="语音搜索"></button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $("searchbox-input").onfocus = function () {
+        document.getElementsByTagName("body")[0].className = "searchbox-focused";
+    }
+    $("searchbox-input").onblur = function () {
+        document.getElementsByTagName("body")[0].className = "";
+    }
+</script>
+</html>
