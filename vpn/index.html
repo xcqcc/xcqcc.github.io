@@ -1,0 +1,1382 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <style type="text/css">
+        #demo {
+            overflow:hidden;
+            background: #FFF;
+            overflow:hidden;
+            border: 1px solid #CCC;
+            box-shadow: 0 2px 10px #ccc;
+            width: 830px;
+            cursor: pointer;
+            margin: 0px auto;
+            margin-bottom: 100px;
+        }
+        #demo img {
+            border: 3px solid #F2F2F2;
+            box-shadow: 0 2px 10px #F2F2F2;
+        }
+        #indemo {
+            float: left;
+            width: 800%;
+        }
+        #demo1 {
+            float: left;
+        }
+        #demo2 {
+            float: left;
+        }
+    </style>
+    <style>
+        article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
+        a{text-decoration: none}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}
+        body div{margin: 0px;padding: 0px;}
+
+        @media screen {
+            .side-service {
+                position: fixed;
+                right: -120px;
+                top: 80%;
+                z-index: 9999;
+                color: #fff;
+                margin-top: -100px;
+                text-align: center;
+                -webkit-transition: right .4s linear;
+                -o-transition: right .4s linear;
+                transition: right .4s linear;
+            }
+
+            .side-service a {
+                color: inherit;
+            }
+
+            .side-service .trigger {
+                position: absolute;
+                left: -32px;
+                top: 30px;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+                width: 22px;
+                padding: 1em .5em;
+                font-size: 14px;
+                line-height: 1.2;
+                background-color: #0082e6;
+                cursor: pointer;
+                border-radius: 5px 0 0 5px;
+            }
+
+            .side-service .trigger .icon-tablk {
+                display: inline-block;
+                width: 22px;
+                height: 19px;
+                margin-bottom: 5px;
+                background: url("img/maopao.png") no-repeat 0 0;
+                background-size: 20px auto;
+            }
+
+            .side-service .trigger .icon-angle {
+                display: block;
+                width: 6px;
+                height: 12px;
+                margin: 10px auto 0;
+                background: url("img/fangxiang.jpg") no-repeat 0 0;
+                background-size: 8px auto;
+            }
+
+            .side-service .content {
+                padding: 15px 10px;
+                background-color: #0082e6;
+                border-radius: 5px 0 0 5px;
+            }
+
+            .side-service .content .wrap {
+                padding: 20px 10px 20px 10px;
+                background-color: #0065b2;
+            }
+
+            .side-service .content .wrap ul {
+                list-style: none;
+                -webkit-padding-start: 0px;
+            }
+
+            .side-service .content h5 {
+                font-weight: 400;
+                text-align: left;
+                font-size: 12px;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .side-service .content h5 ~ h5 {
+                margin-top: 30px;
+            }
+
+            .side-service .content li {
+                width: 80px;
+                padding: .2em 0;
+                margin-bottom: 30px;
+                font-size: 14px;
+                border: 1px solid #fff;
+                border-radius: 12px;
+            }
+
+            .side-service .content li + li {
+                margin-top: 15px;
+            }
+
+            .side-service .content li a {
+                display: block;
+                height: 100%;
+                text-decoration: none
+            }
+
+            .side-service .content li:hover {
+                box-shadow: 0 0 5px rgba(255, 255, 255, .5);
+            }
+
+            .head {
+                width: 100%;
+                height: 40px;
+                background: #2f3a4a;
+                display: block;
+                padding: 15px 0;
+                box-sizing: content-box;
+                font-family: "Microsoft YaHei", Arial;
+                box-shadow: 0 0 10px #2f3a4a;
+            }
+
+            .hw {
+                width: 1000px;
+                margin: 0px auto;
+            }
+
+            .hl {
+                float: left;
+                display: inline;
+            }
+
+            .logo {
+                display: block;
+                background: url("img/logo.png") no-repeat;
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                position: relative;
+                top: -6px;
+                background-size: 50px auto;
+            }
+
+            .i_name {
+                text-decoration: none;
+                cursor: pointer;
+                margin-left: 15px;
+                font-size: 30px;
+                color: #b6bcc5;
+            }
+
+            .hr {
+                float: right;
+            }
+
+            .home {
+                font-size: 14px;
+                color: white;
+                line-height: 40px;
+                margin-left: 20px;
+                float: left;
+                display: inline
+            }
+
+            .home a {
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+                border: white solid 1px;
+                border-radius: 5px;
+                width: 100px;
+                display: block;
+                text-align: center
+            }
+
+            .page_head {
+                overflow: hidden;
+                margin-top: 50px;
+                padding-bottom: 35px;
+                padding-top: 50px;
+                background-size: 100px auto;
+            }
+
+            .page_head_p1 {
+                width: 648px;
+                height: 46px;
+                line-height: 46px;
+                border: 1px solid #ccc;
+                box-shadow: 0 0 10px #ccc;
+                margin: 0 auto 35px;
+                background-color: #fafafc;
+                border-radius: 10px;
+                font-size: 18px;
+                color: #2f3a4a;
+                text-align: center;
+            }
+
+            .s_line {
+                height: 16px;
+                width: 1px;
+                background-color: #ccc;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 26px;
+            }
+
+            .jiage {
+                width: 100%;
+                display: block;
+                margin: 0px auto; /*margin-bottom: 25px;margin-top: 50px;*/
+                height: 690px;
+                letter-spacing: 2px;
+
+            }
+
+            .jiage0 {
+                width: 100%;
+                height: 50px;
+                background: #ed9c9f;
+                line-height: 50px;
+                text-align: left;
+                text-indent: 1em;
+                font-size: 30px;
+                font-weight: 500;
+                color: white;
+                box-shadow: 0 0 10px #ed9c9f;
+                margin-bottom: 100px;
+            }
+            .jiage1{width: 1020px; margin: 0px auto}
+
+            .yue {
+                position: relative;
+                height: 294px;
+                width: 318px;
+                padding-top: 54px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                box-shadow: 0 2px 10px #ccc;
+                float: left;
+                margin-right: 20px;
+            }
+
+            .a_link {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                z-index: 200;
+                display: block;
+                text-decoration: none;
+            }
+
+            .yue h1 {
+                padding: 0 32px 0 18px;
+                font-size: 24px;
+                line-height: 28px;
+                color: #2db3a9;
+            }
+
+            .pInfo {
+                text-align: left;
+                margin: 30px 0;
+                padding: 0 32px 0 18px;
+                font-size: 15px;
+                color: #505050;
+                text-indent: 1em;
+                line-height: 25px;
+            }
+
+            .p_a {
+                text-align: left;
+                padding-left: 18px;
+            }
+
+            .p_at {
+                width: 88px;
+                height: 31px;
+                line-height: 31px;
+                font-size: 14px;
+                display: inline-block;
+                text-align: center;
+                border: 1px solid #ccc;
+                border-radius: 16px;
+                color: #6b6b6b;
+                margin-right: 10px;
+            }
+
+            .p3 {
+                position: absolute;
+                left: 18px;
+                top: 220px;
+                font-size: 14px;
+                color: #fb7a73;
+
+            }
+
+            .head_bot {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 66px;
+                background-color: #f1f1f1;
+                z-index: 250;
+                text-align: left;
+            }
+
+            .bot-le {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40%;
+                height: 66px;
+                background-color: #f1f1f1;
+                text-align: left;
+            }
+
+            .biao {
+                font-size: 24px;
+                color: #fc5e5e;
+                line-height: 25px;
+                vertical-align: bottom;
+                padding-left: 10px;
+
+            }
+
+            .newPrice {
+                font-size: 30px;
+                color: #fc5e5e;
+                line-height: 28px;
+                font-weight: 700;
+                vertical-align: bottom;
+            }
+
+            .oldPrice {
+                font-size: 14px;
+                line-height: 16px;
+                color: #999898;
+                text-decoration: line-through;
+                vertical-align: top;
+            }
+
+            .buy {
+                display: inline-block;
+                width: 40%;
+                height: 43px;
+                background-color: #fb7a73;
+                line-height: 43px;
+                color: #fff;
+                font-size: 22px;
+                text-align: center;
+                border-radius: 8px;
+                float: right;
+                margin: 10px 16px;
+                text-decoration: none;
+                z-index: 260;
+                cursor: pointer;
+            }
+
+            .gz {
+                height: 40px;
+                background: #3ec2b7;
+                display: block;
+                padding: 15px 0;
+                box-sizing: content-box;
+                font-family: "Microsoft YaHei", Arial;
+                box-shadow: 0 0 10px #3ec2b7;
+                margin: 10px 0;
+            }
+            .gz0{
+                width: 1020px;margin: 0 auto;
+            }
+
+            .gongzhonghao_a {
+                display: block;
+                width: 100%;
+                height: 40px;
+                margin: 0px auto;
+                text-align: center;
+                text-decoration: none;
+                line-height: 40px;
+                color: white;
+                cursor: pointer;
+                border: 1px white solid;
+                border-radius: 10px;
+            }
+
+            .down {
+                width: 100%;
+                /*padding-left: 15px;
+                padding-right: 15px;*/
+                margin: 0 auto;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .list {
+                font-size: 0;
+
+                padding-top: 130px;
+                padding-bottom: 80px;
+
+                text-align: center;
+            }
+
+            .item {
+                font-size: 16px;
+                line-height: 1;
+
+                position: relative;
+
+                display: inline-block;
+                overflow: hidden;
+
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                width: 230px;
+                height: 400px;
+
+                cursor: default;;
+                -webkit-transition: -webkit-box-shadow ease-in .4s;
+                -o-transition: box-shadow ease-in .4s;
+                transition: -webkit-box-shadow ease-in .4s;
+                transition: box-shadow ease-in .4s;
+                transition: box-shadow ease-in .4s, -webkit-box-shadow ease-in .4s;
+                vertical-align: top;
+
+                color: #666;
+                border: 2px solid #347feb;
+                border-radius: 6px;
+                background-color: #fff;
+            }
+
+            .item + .item {
+                margin-left: 26.66667px;
+            }
+
+            .item-normal, .item-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+
+                background-color: #fff;
+            }
+
+            .item-normal {
+                padding-top: 10px;
+
+                -webkit-transition: opacity .4s ease-out;
+                -o-transition: opacity .4s ease-out;
+                transition: opacity .4s ease-out;;
+
+                opacity: 1;
+            }
+
+            .item-normal .img {
+                display: inline-block;
+
+                width: 200px;
+                height: 200px;
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+
+            .item-normal .img-pc {
+                background: url("img/pc.png") no-repeat 0 0;
+            }
+
+            .item-normal .img-mac {
+                background: url("img/mac.png") no-repeat 0 0;
+            }
+
+            .item-normal .img-ios {
+                background: url("img/ios.png") no-repeat 0 0;
+            }
+
+            .item-normal .img-android {
+                background: url("img/android.png") no-repeat 0 0;
+            }
+
+            .item-normal .name {
+                font-size: 36px;
+                margin-top: 50px;
+                margin-bottom: 30px;;
+
+                color: #333;
+            }
+
+            .item-normal .text {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .item-normal .text-m {
+                display: none;
+            }
+
+            .item-normal p {
+                margin: 0;
+            }
+
+            .item-hover {
+                padding: 40px 18px 0;
+
+                -webkit-transition: opacity ease-out .2s, -webkit-transform ease-out .6s;
+                -o-transition: transform ease-out .6s, opacity ease-out .2s;
+                transition: opacity ease-out .2s, -webkit-transform ease-out .6s;
+                transition: transform ease-out .6s, opacity ease-out .2s;
+                transition: transform ease-out .6s, opacity ease-out .2s, -webkit-transform ease-out .6s;;
+                -webkit-transform: translateY(-100%);
+                -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
+                text-align: center;
+
+                opacity: 0;
+            }
+
+            .item-hover .name {
+                font-size: 40px;
+
+                margin-top: 30px;
+                margin-bottom: 15px;
+
+                color: #347feb;
+            }
+
+            .item-hover .name a {
+                text-decoration: none;;
+
+                color: inherit;
+            }
+
+            .item-hover .code {
+                display: inline-block;
+                overflow: hidden;
+
+                width: 180px;
+                height: 180px;
+
+                background-color: #e8e8e8;
+            }
+
+            .item-hover .code img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .item-hover .code + .name {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .item-hover .code ~ .text {
+                line-height: 30px;
+            }
+
+            .item-hover .text {
+                line-height: 40px;
+            }
+
+            .text {
+                color: #666;
+            }
+
+            .item-hover .text.lg {
+                font-size: 24px;;
+                margin-top: 10px;
+            }
+
+            .item-hover .text-primary {
+                font-size: 30px;;
+                line-height: 60px;
+
+                display: block;
+
+                margin-top: 50px;
+
+                color: #347feb;
+            }
+
+            .item-hover .btn {
+                font-size: 30px;
+                line-height: 70px;
+
+                display: block;
+
+                margin-top: 150px;;
+
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
+                border-radius: 6px;
+                background-color: #347feb;
+            }
+
+            .item-hover .btn:hover {
+                background-color: #4b8eed;
+            }
+
+            .item:hover {
+                -webkit-box-shadow: 0 4px 10px rgba(52, 127, 235, .5);
+                box-shadow: 0 4px 10px rgba(52, 127, 235, .5);
+            }
+
+            .item:hover .item-normal {
+                opacity: 0;
+            }
+
+            .item:hover .item-hover {
+                -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                transform: translateY(0);;
+                opacity: 1;
+            }
+
+            .down0 {
+                width: 100%;
+                height: 50px;
+                background: #01ede5;
+                line-height: 50px;
+                text-align: left;
+                text-indent: 1em;
+                font-size: 30px;
+                font-weight: 500;
+                color: white;
+                box-shadow: 0 0 10px #01ede5;
+            }
+
+            .an_download {
+                color: #666;
+            }
+
+            .end_box {
+                width: 100%;
+                height: 80px;
+                background: #2f3a4a;
+                box-shadow: 0 0 10px #2f3a4a;
+            }
+
+            .end {
+                width: 1050px;
+                margin: 0px auto;
+            }
+
+            .fufei {
+                width: 100%;
+                height: 40px;
+                background: #3cc242;
+                display: block;
+                padding: 15px 0;
+                box-sizing: content-box;
+                font-family: "Microsoft YaHei", Arial;
+                box-shadow: 0 0 10px #3cc242;
+                margin: 10px 0;
+            }
+
+            .fufei0 {
+                display: block;
+
+                height: 40px;
+                margin: 0px auto;
+                text-align: center;
+                text-decoration: none;
+                line-height: 40px;
+                color: white;
+                border: 1px white solid;
+                border-radius: 10px;
+            }
+            .fufei1{ width: 1020px;margin: 0 auto;}
+
+
+            /*返回顶部*/
+            .return_head {
+                position: fixed;
+                right: 0px;
+                top: 60%;
+                z-index: 9999;
+                color: #fff;
+                margin-top: -100px;
+                text-align: center;
+                -webkit-transition: right .4s linear;
+                -o-transition: right .4s linear;
+                transition: right .4s linear;
+            }
+
+            .return_head0 {
+                position: absolute;
+                left: -32px;
+                top: 30px;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+                width: 22px;
+                padding: 1em .5em;
+                font-size: 14px;
+                line-height: 1.2;
+                background-color: #0082e6;
+                cursor: pointer;
+                border-radius: 5px 0 0 5px;
+            }
+
+            /*公众号*/
+            .gongzhonghao {
+                position: fixed;
+                left: 0px;
+                top: 20%;
+                z-index: 9999;
+                color: #fff;
+                text-align: center;
+                -webkit-transition: left .4s linear;
+                -o-transition: left .4s linear;
+                transition: left .4s linear;
+            }
+
+            .gongzhonghao .min_box {
+                position: absolute;
+                right: -32px;
+                top: 40px;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+                width: 22px;
+                padding: 1em .5em;
+                font-size: 14px;
+                line-height: 1.2;
+                background-color: #0082e6;
+                cursor: pointer;
+                border-radius: 0 5px 5px 0;
+            }
+
+            .gongzhonghao .max_box {
+                padding: 15px 10px;
+                background-color: #0082e6;
+                border-radius: 0 5px 5px 0;
+            }
+
+            .gongzhonghao .max_box h5 {
+                width: 150px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .gongzhonghao .max_box img {
+                width: 150px;
+                height: auto
+            }
+        }
+
+        .jiage_768{
+            display: none;
+            width: 100%;
+        }
+        .jiage_768 .jiage_list{
+           list-style:  none;
+        }
+
+        .jiage_768 .j_yue{
+            width: 80%;
+            height: 90px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border: 1px solid #ccc;
+            box-shadow:0 2px 10px #ccc ;
+        }
+
+        .j_biao{
+            padding: 0 32px 0 18px;
+            font-size: 24px;
+            line-height: 28px;
+            color: #2db3a9;
+        }
+
+        .j_box{
+           width: 100%;height: 40px;margin-top: 20px;line-height: 40px;position: relative;left: 0px;bottom: 0px;
+        }
+        .j_jia{
+            color: #fb7a73;
+            font-size: 20px;
+        }
+
+        .j_buy{
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            width: 40%;
+            text-align: center;
+            background: #fb7a73;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .j_old{
+            font-size: 10px;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .down_768{
+            width: 100%;
+            display: none;
+        }
+
+        .down_7680{
+            width: 80%;
+            margin: 0px auto;
+        }
+
+        .down_list{
+            list-style: none;
+            padding-top: 100px;
+            padding-bottom: 410px;
+
+        }
+
+        .down_7680 ul li img{ width:100%;margin: 15px 0;}
+
+        .y_ios{
+            width: 40%;
+            padding-top: 30px;
+            padding-bottom: 10px;
+            margin: 0px 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px #ccc;
+            float: left;
+        }
+        .y_an{
+            width: 40%;
+            padding-top: 30px;
+            padding-bottom: 10px;
+            margin: 0px 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px #ccc;
+            float: left;
+        }
+        .y_download{
+            display: block;
+            width: 85%;
+            height: 40px;
+            line-height: 40px;
+            background: #3cc242;
+            border: 1px solid #999898;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div class="head" id="head">
+            <div class="hw">
+                <div class="hl">
+                    <a href="#" class="logo" target="_blank"></a>
+                </div>
+                    <a href="#" class="i_name" target="_blank">IP变换器</a>
+
+                <div class="hr">
+                    <p class="home">
+                        <a href="#jiage" target="_self">价格体系</a>
+                    </p>
+                    <p class="home">
+                        <a href="#down" target="_self">下载</a>
+                    </p>
+                    <p class="home">
+                        <a id="gongzhonghao1">关注公众号</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+<!--自我描述-->
+    <div class="page_head" id="page_head">
+        <!--循环图片-->
+        <div id="demo">
+            <div id="indemo">
+                <div id="demo1">
+                    <img src="img/facebook.jpg" style="width: 350px;padding-bottom: 50px;">
+                    <img src="img/YouTube.jpg" style="padding-bottom: 50px;"/>
+                    <img src="img/Twitter.jpg" style="width: 350px;padding-bottom: 50px;"/>
+                    <img src="img/melrose.jpg"/>
+                    <img src="img/header.jpg" style="padding-bottom: 40px;"/>
+                </div>
+                <div id="demo2"></div>
+            </div>
+        </div>
+        <p class="page_head_p1">
+            <span class="s_info">数据安全</span>
+            <span class="s_line"></span>
+            <span class="s_info">连接稳定</span>
+            <span class="s_line"></span>
+            <span class="s_info">速度一流</span>
+        </p>
+
+        <!--width<768-->
+        <!--<p class="page_head_p2">
+            <span class="y_info">数据安全</span>
+            <span class="y_info">连接稳定</span>
+            <span class="y_info">速度一流</span>
+        </p>-->
+    </div>
+<!--付费方式-->
+    <div class="fufei">
+        <div class="fufei1">
+            <p class="fufei0">融资付费方式，杜绝中途无法使用</p>
+        </div>
+    </div>
+<!--公众号-->
+    <div class="gz">
+        <div class="gz0">
+            <p class="gongzhonghao_a" id="gongzhonghao0">关注微信公众号，首冲抽奖，享受优惠，最高可全返</p>
+        </div>
+    </div>
+<!--价格体系-->
+    <div class="jiage" id="jiage">
+        <div class="jiage0">
+            价格体系
+        </div>
+        <div class="jiage1">
+            <div class="yue" id="month">
+            <a class="a_link" ></a>
+            <h1>月付</h1>
+            <p class="pInfo">
+                1个月使用期限	,	客户端支持PC端和移动端安装使用 , 不限流量 、宽带
+            </p>
+            <!--<p class="p_a">
+                <a class="p_at">1</a>
+                <a class="p_at">2</a>
+            </p>-->
+            <p class="p3">40元起，经济实惠，可七天内按实际使用天数退款</p>
+            <div class="head_bot">
+                <p class="bot-le">
+                    <span class="biao"> ￥ </span>
+                    <span class="newPrice"> 40 </span><br>
+                    &nbsp;&nbsp;
+
+                </p>
+                <a class="buy" id="buy_ke0">立即购买</a>
+            </div>
+        </div>
+            <div class="yue" id="half_year">
+                <a class="a_link"></a>
+                <h1>半年付</h1>
+                <p class="pInfo">
+                    6个月使用期限	,	客户端支持PC端和移动端安装使用 , 不限流量 、宽带
+                </p>
+                <!--<p class="p_a">
+                    <a class="p_at">1</a>
+                    <a class="p_at">2</a>
+                </p>-->
+                <p class="p3">40元起，经济实惠，可七天内按实际使用天数退款</p>
+                <div class="head_bot">
+                    <p class="bot-le">
+                        <span class="biao"> ￥ </span>
+                        <span class="newPrice"> 200 </span><br>
+                        &nbsp;&nbsp;
+                        <span class="oldPrice"> 原价240 </span>
+                    </p>
+                    <a class="buy" id="buy_ke1">立即购买</a>
+                </div>
+            </div>
+            <div class="yue" id="year">
+                <a  class="a_link" ></a>
+                <h1>年付</h1>
+                <p class="pInfo">
+                    12个月使用期限	,	客户端支持PC端和移动端安装使用 , 不限流量 、宽带
+                </p>
+                <!--<p class="p_a">
+                    <a class="p_at">1</a>
+                    <a class="p_at">2</a>
+                </p>-->
+                <p class="p3">40元起，经济实惠，可七天内按实际使用天数退款</p>
+                <div class="head_bot">
+                    <p class="bot-le">
+                        <span class="biao"> ￥ </span>
+                        <span class="newPrice"> 258 </span><br>
+                        &nbsp;&nbsp;
+                        <span class="oldPrice"> 原价480 </span>
+                    </p>
+                    <a class="buy" id="buy_ke2">立即购买</a>
+                </div>
+            </div>
+        </div>
+        <!--width<768-->
+        <div class="jiage_768">
+            <ul class="jiage_list">
+                <li class="j_yue">
+                    <p class="j_biao">月付</p>
+                    <div class="j_box">
+                        <p class="j_jia">
+                            <span> ￥ </span>
+                            <span> 40 </span>
+
+                        </p>
+                        <a class="j_buy" id="j_buy_ke0">立即购买</a>
+                    </div>
+                </li>
+                <li class="j_yue">
+                   <p class="j_biao">半年付</p>
+                    <div class="j_box">
+                        <p class="j_jia">
+                            <span> ￥ </span>
+                            <span> 200 </span>
+                            <span class="j_old">￥240</span>
+                        </p>
+                        <a  class="j_buy" id="j_buy_ke1">立即购买</a>
+                    </div>
+                </li>
+                <li class="j_yue">
+                   <p class="j_biao">年付</p>
+                    <div class="j_box">
+                        <p class="j_jia">
+                            <span> ￥ </span>
+                            <span> 258 </span>
+                            <span class="j_old" >￥480</span>
+                        </p>
+                        <a class="j_buy" id="j_buy_ke2">立即购买</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<!--下载-->
+    <div class="down" id="down">
+        <div class="down0">
+            软件下载
+        </div>
+        <div style="width: 1050px;margin: 0px auto;" class="down1">
+            <ul class="list">
+                <li class="item item-pc">
+                    <div class="item-normal">
+                        <div class="img img-pc"></div>
+                        <div class="name">Windows</div>
+                        <div class="text">
+                            <!--<p>XP/Vista/Win7/Win8/Win10</p>
+                            <p>多种协议全面支持</p>
+                            <p>多种套餐，不限速度</p>
+                            <p>下载后请解压再使用</p>-->
+                        </div>
+                    </div>
+                    <div class="item-hover">
+                        <div class="name">Windows</div>
+                        <!--<div class="text">
+                            <span>最新版本</span>
+                            <span>：V3.0.1118</span>
+                        </div>
+                        <div class="text">
+                            <span>更新时间</span>
+                            <span>：2017-11-05</span>
+                        </div>-->
+                        <a class="btn pc_download" href="setup/ipbhq_setup.exe" target="_blank" title="">立即下载</a>
+                    </div>
+                </li>
+                <li class="item item-mac">
+                    <div class="item-normal">
+                        <div class="img img-mac"></div>
+                        <div class="name">Mac</div>
+                        <div class="text">
+                            <!--<p >支持MacOS 10.0以上系统</p>
+                            <p >苹果电脑专用</p>
+                            <p >独有的绕行模式</p>
+                            <p >全部地区线路均可使用</p>-->
+                        </div>
+                    </div>
+                    <div class="item-hover">
+                        <div class="name">Mac</div>
+                         <div class="text" data-lang="Base.programming">正在开发当中</div>
+                         <div class="text" data-lang="Base.coming">将尽快上线</div>
+                         <div class="text text-primary" data-lang="Base.wait">敬请期待</div>
+                        <!--<div class="text"><span>最新版本</span><span>：V2.0.0011</span></div>
+                        <div class="text">
+                            <span>更新时间</span><span>：2017-11-22</span>
+                        </div>
+                        <a class="btn mac_download" href="#" target="_blank">立即下载</a>-->
+
+
+                    </div>
+                </li>
+                <li class="item item-ios">
+                    <a class="ios_download" >
+                        <div class="item-normal">
+                            <div class="img img-ios"></div>
+                            <div class="name">IOS</div>
+                            <div class="text">
+                                <!--<p>支持IOS 9.0以上手机系统</p>
+                                <p>每天可获取10分钟免费体验</p>
+                                <p>支持SS和IKEv2协议</p>-->
+                            </div>
+                            <div class="text text-m"><span >最新版本</span><span>：V1.0.1</span></div>
+                            <div class="text text-m"><span >更新时间</span><span>：2017-08-03</span></div>
+                        </div>
+                        <!--
+                        <div class="item-hover">
+                           <div class="name">iOS</div>
+                           <div class="text" >正在开发当中</div>
+                           <div class="text" >将尽快上线</div>
+                           <div class="text text-primary" >敬请期待</div>
+                          </div>
+                        -->
+                        <div class="item-hover">
+                            <div class="code"><img src="https://www.ipsuper.com/user_kd/weixin_qrcode?data=https://www.ipsuper.com/update/check_app/2c4c9ade" alt="ios"></div>
+                            <div class="name">IOS</div>
+                            <!--<div class="text"><span >最新版本</span><span>：V1.0.2</span></div>
+                            <div class="text">
+                                <span >更新时间</span><span>：2018-1-03</span>
+                            </div>-->
+                            <div class="text lg"><a href="#" class="an_download">扫描二维码下载</a></div>
+                        </div>
+
+                    </a>
+                </li>
+                <li class="item item-android">
+                    <div class="item-normal">
+                        <a class="an_download" href="setup/ipchange_android.apk" target="_blank">
+                            <div class="img img-android"></div>
+                            <div class="name">Android</div>
+                            <div class="text">
+                                <!--<p >支持4.0以上手机系统</p>
+                                <p >新用户免费体验一个小时</p>
+                                <p >支持SS和OpenUDP协议</p>-->
+                            </div>
+                            <!--<div class="text text-m"><span >最新版本</span><span>：V0.0.8</span></div>
+                            <div class="text text-m"><span >更新时间</span><span>：2017-11-22</span></div>-->
+                        </a>
+                    </div>
+                    <div class="item-hover">
+                        <div class="code"><a class="an_download"><img src="https://www.ipsuper.com/user_kd/weixin_qrcode?data=https://www.ipsuper.com/update/check_app/2c4c9ade" alt="Android"></a></div>
+                        <div class="name">Android</div>
+                        <!--<div class="text"><span >最新版本</span><span>：V0.0.8</span></div>
+                        <div class="text">
+                            <span >更新时间</span><span>：2018-2-2</span>
+                        </div>-->
+                        <div class="text lg"><a class="an_download" href="setup/ipchange_android.apk" target="_blank" >扫描二维码下载</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--width<768px-->
+        <div class="down_768">
+            <div class="down_7680">
+            <ul class="down_list">
+                <li class="y_ios">
+                    <img src="img/ios.png">
+                    <a class="y_download" href="#" target="_blank">IOS 下载</a>
+                </li>
+                <li class="y_an">
+                    <img src="img/android.png">
+                    <a class="y_download" href="setup/ipchange_android.apk" target="_blank">Android 下载</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+<!--底部-->
+<div class="end_box">
+    <div class="end"></div>
+</div>
+
+<!--返回顶部-->
+<div class="return_head" id="return_head">
+    <div class="return_head0">
+        <span><a href="#head" style="color: white">返回顶部</a></span>
+    </div>
+</div>
+<!--左侧公众号-->
+<div class="gongzhonghao" id="gongzhonghao" style="left: -170px;">
+    <div class="min_box" id="min_box">
+        <span>关注公众号</span>
+    </div>
+    <div class="max_box" id="max_box" >
+        <h5>扫描下方二维码</h5>
+        <img src="img/weixin_gongzhonghao.jpg" alt=""/>
+    </div>
+</div>
+<!--右侧在线客服-->
+<div class="side-service" id="sideService" style="right: -122px;">
+    <div class="trigger">
+        <i class="icon-tablk"></i>
+        <span>在线客服</span>
+        <i class="icon-angle" style="transform: rotate(0deg);"></i>
+    </div>
+    <div class="content">
+        <div class="wrap">
+            <h5>QQ客服</h5>
+            <ul >
+                <li >
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=2960982010&site=www.cactussoft.cn&menu=yes" target="_blank">QQ皮皮</a>
+                </li>
+            </ul>
+            <!--<h5>QQ群讨论</h5>-->
+            <ul>
+                <li >
+                    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2137165621&site=www.cactussoft.cn&menu=yes">QQ豆子</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function $(n) {
+        return document.getElementById(n);
+    }
+    function T(n) {
+        return document.getElementsByClassName(n);
+    }
+    $("min_box").onclick = function () {
+        if($("gongzhonghao").style.left=="0px"){
+            $("gongzhonghao").style.left = "-170px";
+        }else if($("gongzhonghao").style.left == "-170px"){
+            $("gongzhonghao").style.left="0px"
+        }
+    }
+
+    $("sideService").onclick  = function (){
+        if($("sideService").style.right == "0px"){
+            $("sideService").style.right = "-122px" ;
+            T("icon-angle")[0].style.transform = "rotate(0deg)";
+        }else if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+    }
+    
+    $("gongzhonghao0").onclick = function () {
+        if($("gongzhonghao").style.left=="0px"){
+            $("gongzhonghao").style.left = "-170px";
+        }else if($("gongzhonghao").style.left == "-170px"){
+            $("gongzhonghao").style.left="0px";
+        }
+    }
+    $("gongzhonghao1").onclick = function () {
+        if($("gongzhonghao").style.left=="0px"){
+            $("gongzhonghao").style.left = "-170px";
+        }else if($("gongzhonghao").style.left == "-170px"){
+            $("gongzhonghao").style.left="0px";
+        }
+    }
+
+    $("month").onmousemove = function () {
+        T("yue")[0].style.boxShadow = "0 2px 20px #ccc";
+    }
+    $("month").onmouseout = function () {
+        T("yue")[0].style.boxShadow = "0 2px 10px #ccc";
+    }
+
+    $("half_year").onmousemove = function () {
+        T("yue")[1].style.boxShadow = "0 2px 20px #ccc";
+    }
+    $("half_year").onmouseout = function () {
+        T("yue")[1].style.boxShadow = "0 2px 10px #ccc";
+    }
+
+    $("year").onmousemove = function () {
+        T("yue")[2].style.boxShadow = "0 2px 20px #ccc";
+    }
+    $("year").onmouseout = function () {
+        T("yue")[2].style.boxShadow = "0 2px 10px #ccc";
+    }
+
+
+    $("buy_ke0").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+
+    $("buy_ke1").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+    $("buy_ke2").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+
+    $("j_buy_ke0").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+    $("j_buy_ke1").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+    $("j_buy_ke2").onclick = function () {
+        if($("sideService").style.right == "-122px"){
+            $("sideService").style.right = "0px";
+            T("icon-angle")[0].style.transform = "rotate(180deg)";
+        }
+        alert("购买详情与客服交流！");
+    }
+
+</script>
+<script>
+    var speed=50; //数字越大速度越慢
+    var tab=document.getElementById("demo");
+    var tab1=document.getElementById("demo1");
+    var tab2=document.getElementById("demo2");
+    tab2.innerHTML=tab1.innerHTML;
+    function Marquee(){
+        if(tab2.offsetWidth-tab.scrollLeft<=0)
+            tab.scrollLeft-=tab1.offsetWidth;
+        else{
+            tab.scrollLeft++;
+        }
+    }
+    var MyMar=setInterval(Marquee,speed);
+
+    tab.onmouseover=function() {clearInterval(MyMar)};
+
+    tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>
+<style>
+    @media screen and (max-width:768px ){
+        .head .hw{width: 375px;margin: 0px auto;}
+        .head .hw .logo{margin-left: 10px}
+        .head .hr,.jiage1{display: none;}
+        #demo{width: 375px;}
+        #indemo{width: 1000%;}
+        .jiage{height: 600px}
+        .fufei1,.gz0 {width: 375px;font-size: 11px; }
+
+        .down1 {display: none}
+        .page_head_p1{width: 340px}
+        .s_info{font-size: 14px;}
+
+        .jiage_768,.down_768{display: block}
+    }
+</style>
+</html>
